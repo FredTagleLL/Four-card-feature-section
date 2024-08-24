@@ -1,0 +1,217 @@
+:root{
+    --popings:"Poppins", sans-serif;
+    /*prymary*/
+    --Red: hsl(0, 78%, 62%);
+    --Cyan: hsl(180, 62%, 55%);
+    --Orange: hsl(34, 97%, 64%);
+    --Blue: hsl(212, 86%, 64%);
+
+    /*neutral*/
+    --Very-Dark-Blue: hsl(234, 12%, 34%);
+    --Grayish-Blue: hsl(229, 6%, 66%);
+    --Very-Light-Gray: hsl(0, 0%, 98%);
+    
+    /*separadores*/
+    --gap-secundario:1.5rem;
+    --gap-primario:2rem;
+    --separador-primario:8vh;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+html{
+    font-family: var(--popings);
+}
+
+body{
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    padding-top: var(--separador-primario) ;
+    padding-bottom: var(--separador-primario);
+    align-items: center;
+    background-color:var(--Very-Light-Gray);
+    width: 100%;
+    height: auto;
+}
+
+
+.header, .main{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--Very-Light-Gray);
+    
+}
+.header__titulo{
+    text-align: center;
+    font-size: clamp(1.5rem,4vw,3rem);
+    font-weight: 200;
+    line-height: 1.4;
+    white-space: pre-line;
+    color: var(--Very-Dark-Blue);
+}
+.titulo--span{
+    font-weight: 600;
+}
+.header__parrafo{
+    font-weight: 200;
+    line-height: 1.5;
+    text-align: center;
+    white-space: pre-line;
+    align-self: center;
+    padding-top: var(--gap-secundario);
+    font-size: clamp(0.9rem,0.5rem + 1vw,1.2rem);
+    color: var(--Very-Dark-Blue);
+    
+}
+.main{
+    align-items: center;
+    margin-top: var(--gap-primario);
+    
+    
+}
+.main>div> h2 ,p{
+    width: 90%;
+    line-height: 2;
+    
+    
+}
+.main__tarjeta{
+    width: 90%;
+    max-width: 370px;
+    min-height: 220px;
+    border-top:4px solid;
+    border-radius: 5px;
+    box-shadow:10px 15px 10px 0px var(--Grayish-Blue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--Very-Light-Gray);
+    position: relative;
+    margin-top: var(--gap-secundario);
+    
+}
+
+.main__tarjeta--titulos{
+    font-weight: 600;
+    color: var(--Very-Dark-Blue);
+
+}
+.main__tarjeta--parrafo{
+    font-weight: 200;
+    color: var(--Very-Dark-Blue);
+    font-size: clamp(1rem , 0.5rem + 1vw ,1rem);
+
+}
+.main__tarjeta--icono{
+    width: 48px;
+    height: 48px;
+    align-self: flex-end;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    object-fit: cover;
+    object-position: center;    
+}
+
+.tarjeta--1{
+    border-color: var(--Cyan);
+}
+.tarjeta--2{
+    border-color: var(--Red);
+}
+.tarjeta--3{
+    border-color: var(--Orange);
+}
+.tarjeta--4{
+    border-color: var(--Blue);
+    
+}
+
+@media (min-width:1000px) {
+    :root{
+        --gap-primario:1rem;
+        --gap-secundario:0rem;
+        --separador-primario:2rem;
+    }
+    *{
+        overflow: hidden;
+    }
+    body{
+        height: 100vh;
+        display: grid;
+        grid-template-rows: auto 1fr;
+    }
+    .header{
+        height: auto;
+        grid-row: 1/2;
+        justify-self: center;
+        gap: 1rem;
+    }
+    .header__titulo{
+        align-self: center;
+        line-height: 1.2;
+
+    }
+    .header__parrafo{
+        white-space:wrap;
+        width: 90%;
+        max-width: 600px;
+        height: auto;
+    }
+    
+    .main{
+        grid-row: 2/-1;
+        align-self: stretch;
+        display: grid;
+        width: auto;
+        grid-template-columns: repeat(3 , 1fr);
+        grid-template-areas: 
+        "area1 area2 area4"
+        "area1 area2 area4"
+        "area1 area3 area4"
+        "area1 area3 area4";  
+        gap: 1rem;
+        padding: 0 1rem 1rem 1rem;
+        max-width:max-content;
+        max-height: max-content;
+        justify-self: center;
+    }
+    .main__tarjeta{
+        height: auto;
+        min-height:210px;
+        max-height: 250px;
+        width: 100%;
+        max-width: 375px;
+
+    }
+    .tarjeta--1{
+        grid-area: area1;
+        justify-self: end;
+        
+    }
+    .tarjeta--2{
+        grid-area: area2;
+        justify-self:center ;
+        align-self: self-end;
+    }
+    .tarjeta--3{
+        grid-area:area3;
+        justify-self: center;
+        align-self:self-start;
+    }
+    .tarjeta--4{
+        grid-area: area4;
+        justify-self: start;
+    }
+
+}
+
+
+
